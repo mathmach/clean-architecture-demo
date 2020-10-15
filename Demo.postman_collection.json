@@ -1,0 +1,164 @@
+{
+    "info": {
+        "_postman_id": "9b414ca4-d34a-47a1-a219-b5b89ea5609d",
+        "name": "Demo",
+        "description": "Demo API Template for Clean Architecture",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Product",
+            "item": [
+                {
+                    "name": "Get All Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{API_URL}}/products",
+                            "host": [
+                                "{{API_URL}}"
+                            ],
+                            "path": [
+                                "products"
+                            ]
+                        },
+                        "description": "Endpoint for get all products stored in database"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Product By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{API_URL}}/product/{{$guid}}",
+                            "host": [
+                                "{{API_URL}}"
+                            ],
+                            "path": [
+                                "product",
+                                "{{$guid}}"
+                            ]
+                        },
+                        "description": "Endpoint for get specific product by ID stored in database"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Save Product",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"{{$randomProductName}}\",\n    \"price\": {{$randomPrice}}\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}/product",
+                            "host": [
+                                "{{API_URL}}"
+                            ],
+                            "path": [
+                                "product"
+                            ]
+                        },
+                        "description": "Endpoint for post product and store it in database"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Folder that contail all endpoints related to products",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Order",
+            "item": [
+                {
+                    "name": "Place Order ",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{API_URL}}/order?productsId={{$guid}}",
+                            "host": [
+                                "{{API_URL}}"
+                            ],
+                            "path": [
+                                "order"
+                            ],
+                            "query": [
+                                {
+                                    "key": "productsId",
+                                    "value": "{{$guid}}"
+                                }
+                            ]
+                        },
+                        "description": "Endpoint for get order details"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Folder that contail all endpoints related to order",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "id": "cfeb5ea8-a305-4bda-ac56-9766b707f09a",
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "56f8ea9f-45e5-4e5b-a6d4-7a2fd5afe9aa",
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {}
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "b32f7412-78ea-4779-8f3e-f2a1b608ac07",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "4b152b36-f328-426b-8a49-e2287f0fa291",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "f4222c62-fb20-4797-97eb-1d046b6d162c",
+            "key": "API_URL",
+            "value": "http://localhost:8080"
+        }
+    ],
+    "protocolProfileBehavior": {}
+}
